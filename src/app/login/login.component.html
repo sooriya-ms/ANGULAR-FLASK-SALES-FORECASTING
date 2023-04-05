@@ -1,0 +1,98 @@
+<div class="center" style="height: 80%;">
+    <!-- Login Page -->
+    <mat-card class="example-card center animate-login login" *ngIf="!signup">
+        <mat-card-header style="padding-bottom: 40px; color: rgb(255, 221, 221); padding-top: 40px;">
+            <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form class="example-form">
+                <table class="example-full-width" cellspacing="10">
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width full-width-field " appearance="fill">
+                                <mat-label>Email</mat-label>
+                                <input matInput placeholder="Enter your Email" name="email" [(ngModel)]="email">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width full-width-field" appearance="fill">
+                                <mat-label>Password</mat-label>
+                                <input matInput placeholder="Enter your password" value="" name="password"
+                                    [type]="hide ? 'password' : 'text'" [(ngModel)]="password" required>
+                                <button mat-icon-button matSuffix (click)="hide = !hide"
+                                style="color: blueviolet;" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="logIn()">Submit</button>
+        </mat-card-actions>
+        <hr>
+        <span><button mat-button class="txt-clr" (click)="openSignUp()">Sign Up</button></span>
+    </mat-card>
+
+    <!-- Signup Page -->
+    <mat-card class="example-card center animate-login login" *ngIf="signup">
+        <mat-card-header style="padding-bottom: 40px; color: rgb(255, 221, 221); padding-top: 40px;">
+            <mat-card-title>Sign Up</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form class="example-form">
+                <table class="example-full-width" cellspacing="10">
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width full-width-field " appearance="fill">
+                                <mat-label>User Name</mat-label>
+                                <input matInput placeholder="Enter your name" name="usename" [(ngModel)]="username">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width full-width-field " appearance="fill">
+                                <mat-label>Email</mat-label>
+                                <input matInput placeholder="Email" name="usename" [(ngModel)]="email">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width full-width-field" appearance="fill">
+                                <mat-label>Password</mat-label>
+                                <input matInput placeholder="Entr your password" value="" name="password"
+                                    type='password' [(ngModel)]="password" required>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width full-width-field" appearance="fill">
+                                <mat-label>Password</mat-label>
+                                <input matInput placeholder="Reentr your password" value="" name="reenterpass"
+                                    [type]="hide ? 'password' : 'text'" [(ngModel)]="reenterpass" required>
+                                <button mat-icon-button matSuffix (click)="hide = !hide"
+                                style="color: blueviolet;"                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="signUp()">Submit</button>
+        </mat-card-actions>
+        <hr>
+        <span><button mat-button class="txt-clr" (click)="openSignUp()">Login</button></span>
+    </mat-card>
+</div>

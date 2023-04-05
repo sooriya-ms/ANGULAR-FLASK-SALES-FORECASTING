@@ -1,0 +1,87 @@
+<div class="pad center columnwise">
+    <div class="center" *ngIf="!graphshow">
+        <mat-card class="example-card center animate-login login"
+            style="background-color: rgb(237, 237, 255); padding-bottom: 40px; padding-top: 30px; ">
+            <!-- rgb(237, 237, 255) -->
+            <mat-card-header style="padding-bottom: 30px;">
+                <mat-card-title>Upload to Predict</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <form class="example-form">
+                    <table class="example-full-width" cellspacing="10">
+                        <tr>
+                            <td>
+                                <input style="padding-bottom: 30px;" id="choosefile" type="file"
+                                    (change)="onFileSelected($event)">
+                                <!-- <button class="full-width-field" mat-stroked-button>
+                                    <label for="choosefile" class="mat-stroked-button">Choose File</label>
+                                </button> -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <mat-form-field class="example-full-width full-width-field" appearance="fill">
+                                    <mat-label>Your Dataset Period</mat-label>
+                                    <mat-select [(ngModel)]="period" name="period">
+                                        <mat-option *ngFor="let period of periods" [value]="period.value">
+                                            {{period.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <mat-form-field class="example-full-width full-width-field">
+                                    <mat-label>Seasonal Number</mat-label>
+                                    <input matInput type="number" placeholder="Seasonal" value="" [(ngModel)]='seasonal'
+                                        name="seasonal">
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <mat-form-field class="example-full-width full-width-field">
+                                    <mat-label>Required Time</mat-label>
+                                    <input matInput type="number" placeholder="Time" value="" [(ngModel)]='time'
+                                        name="time">
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                        <br>
+                        <tr>
+                            <td>
+                                <button class="full-width-field" mat-raised-button color="primary"
+                                    (click)="uploadData()">Submit</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </mat-card-content>
+            <mat-divider></mat-divider>
+        </mat-card>
+    </div>
+    <div *ngIf="graphshow" class="pad columnwise">
+        <h2 class="cen-txt" style="color:rgb(255, 232, 232)">Actual Graph</h2>
+        <img [src]="sentgraph" alt="Matplotlib Graph">
+        <!-- <input type="text" [(ngModel)]="sentgraph" (ngModelChange)="onGraphDataChange($event)"> -->
+        <br>
+        <h2 class="cen-txt" style="padding-top: 10px; color:rgb(255, 232, 232)">Predicted Graph</h2>
+        <img style="padding-bottom: 50px;" [src]="returngraph" alt="Matplotlib Graph">
+        <br>
+        <table class="tab-cen" style="color: rgb(255, 255, 255); margin-bottom: 100px;">
+            <thead>
+                <tr>
+                    <th class="tab" style="font-size: large; text-align: center;">Date</th>
+                    <th class="tab" style="font-size: large; text-align: center;">Sales</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of predicted_data">
+                    <td class="tab">{{ item.Date }}</td>
+                    <td class="tab">{{ item.Sales }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

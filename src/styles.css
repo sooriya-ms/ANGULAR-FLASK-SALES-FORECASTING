@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%;
+    background-image: url("https://wallpaperaccess.com/full/1804129.jpg");
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.bg-color {
+    background-color: #DBE2EF;
+    /* background-color: #4fe5c761; */
+    color: #ffe2e2;
+}

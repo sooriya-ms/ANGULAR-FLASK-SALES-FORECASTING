@@ -1,0 +1,36 @@
+.txt-clr{
+    color: black;
+    font-weight: 500;
+    font-size: larger;
+}
+
+.card-pad-mar{
+    margin: 70px;
+    margin-top: 250px;
+    padding: 30px;
+    background: linear-gradient(to top right, #c1bb53, #3dc389);
+    cursor: pointer;
+}
+
+.card-pad-mar:hover{
+    margin: 70px;
+    margin-top: 250px;
+    padding: 30px;
+    background: linear-gradient(to top right, #eae365, #56ffb6);
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-hei-wid{
+    height: max-content;
+}
+
+.card-btn{
+    position: absolute;
+}
